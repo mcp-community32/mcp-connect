@@ -1,0 +1,7 @@
+src/
+tests/
+examples/
+*.map
+tsconfig.json
+.eslintrc
+.prettierrc
