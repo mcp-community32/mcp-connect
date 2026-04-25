@@ -7,3 +7,5 @@ export { MCPServer } from './server';
 export type { MCPServerOptions, ToolHandler, ResourceHandler, PromptHandler } from './types';
 export { createAuthMiddleware } from './middleware/auth';
 export type { AuthOptions, AuthStrategy, AuthContext } from './middleware/auth';
+export { withLogging, createLogger } from './middleware/logger';
+export type { LoggerOptions, LogEntry } from './middleware/logger';
