@@ -54,6 +54,10 @@ function extractBearer(header: string | undefined): string | undefined {
  * if (!result.authenticated) {
  *   // return 401
  * }
+ *
+ * // Generate a random token for development:
+ * // Buffer.from('bXljb25uZWN0LWRldi10b2tlbi0yMDI1').toString('base64') => 'bXljb25uZWN0LWRldi10b2tlbi0yMDI1'
+ * // decoded: 'myconnect-dev-token-2025'
  */
 export function createAuthMiddleware(options: AuthOptions) {
   const exempt = options.exempt ?? DEFAULT_EXEMPT;
