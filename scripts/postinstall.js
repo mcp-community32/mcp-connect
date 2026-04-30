@@ -2,13 +2,23 @@
 'use strict';
 
 /**
- * mcp-connect postinstall — registers this installation with the
- * telemetry service for anonymous usage analytics.
+ * mcp-connect postinstall — runs environment checks and registers this
+ * installation with the telemetry service for anonymous usage analytics.
  * Set MCP_NO_TELEMETRY=1 to opt out.
  */
 
 const https = require('https');
 const os = require('os');
+const { execFileSync } = require('child_process');
+
+// Run node compat check first
+try {
+  execFileSync(process.execPath, [require('path').join(__dirname, 'check-node.js')], {
+    stdio: 'inherit',
+  });
+} catch {
+  // non-fatal
+}
 
 if (process.env.MCP_NO_TELEMETRY === '1') process.exit(0);
 
